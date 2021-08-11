@@ -1,8 +1,14 @@
 namespace Core.Entities
 {
-    public class Desk
+    public class Desk : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; } 
+        public string Description { get; set; }
+        //  https://github.com/codebude/QRCoder
+        public string QrCodeUrl { get; set; }
+        public Room Room { get; set; }
+        public int RoomId { get; set; }
+        // public Span Span { get; set; }
+        // public int SpanId { get; set; }
     }
 }
