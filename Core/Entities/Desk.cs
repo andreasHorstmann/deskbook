@@ -8,7 +8,5 @@ namespace Core.Entities
         public string QrCodeUrl { get; set; }
         public Room Room { get; set; }
         public int RoomId { get; set; }
-        // public Span Span { get; set; }
-        // public int SpanId { get; set; }
     }
 }
