@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Infrastructure.Data;
 using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Core.Interfaces;
+using Core.Specifications;
+using API.Dtos;
+using AutoMapper;
 
 namespace API.Controllers
 {
@@ -13,29 +13,36 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class DesksController : ControllerBase
     {
-        private readonly IDeskRepository _repo;
-        public DesksController(IDeskRepository repo)
+        private readonly IGenericRepository<Desk> _deskRepo;
+        private readonly IGenericRepository<Room> _roomRepo;
+        private readonly IMapper _mapper;
+        public DesksController(IGenericRepository<Desk> deskRepo, IGenericRepository<Room> roomRepo, IMapper mapper)
         {
-            this._repo = repo;
+            _mapper = mapper;
+            _roomRepo = roomRepo;
+            _deskRepo = deskRepo;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Desk>>> GetDesks()
+        public async Task<ActionResult<IReadOnlyList<DeskToReturnDto>>> GetDesks()
         {
-            var desks = await _repo.GetDeskAsync();
-            return Ok(desks);
+            var spec = new DesksWithRoomSpecification();
+            var desks = await _deskRepo.ListAsync(spec);
+            return Ok(_mapper.Map<IReadOnlyList<Desk>, IReadOnlyList<DeskToReturnDto>>(desks));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Desk>> GetDesk(int id)
+        public async Task<ActionResult<DeskToReturnDto>> GetDesk(int id)
         {
-            return await _repo.GetDeskByIdAsync(id);
+            var spec = new DesksWithRoomSpecification(id);
+            var desk = await _deskRepo.GetEntityWithSpec(spec);
+            return _mapper.Map<Desk, DeskToReturnDto>(desk);
         }
-        
+
         [HttpGet("rooms")]
         public async Task<ActionResult<IReadOnlyList<Room>>> GetRooms()
         {
-            return Ok(await _repo.GetRoomsAsync());
+            return Ok(await _roomRepo.ListAllAsync());
         }
     }
 }
