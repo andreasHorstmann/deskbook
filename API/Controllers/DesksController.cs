@@ -6,12 +6,12 @@ using Core.Interfaces;
 using Core.Specifications;
 using API.Dtos;
 using AutoMapper;
+using API.Errors;
+using Microsoft.AspNetCore.Http;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class DesksController : ControllerBase
+    public class DesksController : BaseApiController
     {
         private readonly IGenericRepository<Desk> _deskRepo;
         private readonly IGenericRepository<Room> _roomRepo;
@@ -32,10 +32,13 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<DeskToReturnDto>> GetDesk(int id)
         {
             var spec = new DesksWithRoomSpecification(id);
             var desk = await _deskRepo.GetEntityWithSpec(spec);
+            if(desk == null) return NotFound(new ApiResponse(400));
             return _mapper.Map<Desk, DeskToReturnDto>(desk);
         }
 
