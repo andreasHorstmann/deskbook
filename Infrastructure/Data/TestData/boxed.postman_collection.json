@@ -394,12 +394,12 @@
 					"response": []
 				},
 				{
-					"name": "GetDesks sorted by Price Ascending",
+					"name": "GetDesks sorted by Room Ascending",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/desks?sort=priceAsc",
+							"raw": "{{url}}/api/desks?sort=roomAsc",
 							"host": [
 								"{{url}}"
 							],
@@ -410,7 +410,7 @@
 							"query": [
 								{
 									"key": "sort",
-									"value": "priceAsc"
+									"value": "roomAsc"
 								}
 							]
 						}
@@ -418,12 +418,12 @@
 					"response": []
 				},
 				{
-					"name": "GetDesks sorted by Price Descending",
+					"name": "GetDesks sorted by Room Descending",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/desks?sort=priceDesc",
+							"raw": "{{url}}/api/desks?sort=roomDesc",
 							"host": [
 								"{{url}}"
 							],
@@ -434,7 +434,7 @@
 							"query": [
 								{
 									"key": "sort",
-									"value": "priceDesc"
+									"value": "roomDesc"
 								}
 							]
 						}
@@ -567,16 +567,8 @@
 							],
 							"query": [
 								{
-									"key": "sizeId",
-									"value": "3"
-								},
-								{
-									"key": "roomId",
-									"value": "2"
-								},
-								{
-									"key": "sort",
-									"value": "priceDesc"
+									"key": "search",
+									"value": "e"
 								}
 							]
 						}

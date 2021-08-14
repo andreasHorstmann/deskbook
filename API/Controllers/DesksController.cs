@@ -8,6 +8,7 @@ using API.Dtos;
 using AutoMapper;
 using API.Errors;
 using Microsoft.AspNetCore.Http;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -24,11 +25,15 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<DeskToReturnDto>>> GetDesks()
+        public async Task<ActionResult<Pagination<DeskToReturnDto>>> GetDesks(
+            [FromQuery]DeskSpecParams deskParams)
         {
-            var spec = new DesksWithRoomSpecification();
+            var spec = new DesksWithRoomSpecification(deskParams);
+            var countSpec = new DesksWithFiltersForCountSpecification(deskParams);
+            var totalItems = await _deskRepo.CountAsync(spec);
             var desks = await _deskRepo.ListAsync(spec);
-            return Ok(_mapper.Map<IReadOnlyList<Desk>, IReadOnlyList<DeskToReturnDto>>(desks));
+            var data = _mapper.Map<IReadOnlyList<Desk>, IReadOnlyList<DeskToReturnDto>>(desks);
+            return Ok(new Pagination<DeskToReturnDto>(deskParams.PageIndex, deskParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]

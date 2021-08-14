@@ -16,12 +16,16 @@ namespace Infrastructure.Data
 
         public async Task<Desk> GetDeskByIdAsync(int id)
         {
-            return await _context.Desks.Include(p => p.Room).FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Desks
+                .Include(p => p.Room)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IReadOnlyList<Desk>> GetDeskAsync()
         {
-            return await _context.Desks.Include(p => p.Room).ToListAsync();
+            return await _context.Desks
+                .Include(p => p.Room)
+                .ToListAsync();
         }
 
         public async Task<IReadOnlyList<Room>> GetRoomsAsync()
