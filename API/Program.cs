@@ -22,7 +22,11 @@ namespace API
                 {
                     var context = services.GetRequiredService<StoreContext>();
                     await context.Database.MigrateAsync();
+                    var logger = loggerFactory.CreateLogger<Program>();
+                    logger.LogInformation("Program.cs => await StoreContextSeed.SeedAsync(context, loggerFactory);");
                     await StoreContextSeed.SeedAsync(context, loggerFactory);
+                    logger.LogInformation("Program.cs => StoreContextQrCodeGeneration.QrCodeGenAsync(loggerFactory);");
+                    StoreContextQrCodeGeneration.QrCodeGenAsync(loggerFactory);
                 }
                 catch (Exception ex)
                 {

@@ -3,30 +3,30 @@
     "Id": 1,
     "Name": "Erde",
     "Description": "südlich",
-    "QrCodeUrl": "images/rooms/qr_r1.png"
+    "QrCodeUrl": "qr_r1.png"
   },
   {
     "Id": 2,
     "Name": "Mars",
     "Description": "südlich",
-    "QrCodeUrl": "images/rooms/qr_r2.png"
+    "QrCodeUrl": "qr_r2.png"
   },
   {
     "Id": 3,
     "Name": "Sonne",
     "Description": "östlich",
-    "QrCodeUrl": "images/rooms/qr_r3.png"
+    "QrCodeUrl": "qr_r3.png"
   },
   {
     "Id": 4,
     "Name": "Venus",
     "Description": "östlich",
-    "QrCodeUrl": "images/rooms/qr_r4.png"
+    "QrCodeUrl": "qr_r4.png"
   },
   {
     "Id": 5,
     "Name": "Pluto",
     "Description": "westlich",
-    "QrCodeUrl": "images/rooms/qr_r5.png"
+    "QrCodeUrl": "qr_r5.png"
   }
 ]

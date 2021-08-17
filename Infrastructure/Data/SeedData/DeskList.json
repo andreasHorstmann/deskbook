@@ -2,97 +2,97 @@
   {
     "Name": "Fantas",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d1_r1.png",
+    "QrCodeUrl": "qr_d1_r1.png",
     "RoomId": 1
   },
   {
     "Name": "Roman",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d2_r1.png",
+    "QrCodeUrl": "qr_d2_r1.png",
     "RoomId": 1
   },
   {
     "Name": "Galak",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d3_r2.png",
+    "QrCodeUrl": "qr_d3_r2.png",
     "RoomId": 2
   },
   {
     "Name": "Gigan",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d4_r2.png",
+    "QrCodeUrl": "qr_d4_r2.png",
     "RoomId": 2
   },
   {
     "Name": "Bombas",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d5_r3.png",
+    "QrCodeUrl": "qr_d5_r3.png",
     "RoomId": 3
   },
   {
     "Name": "Poe",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d6_r3.png",
+    "QrCodeUrl": "qr_d6_r3.png",
     "RoomId": 3
   },
   {
     "Name": "Ero",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d7_r3.png",
+    "QrCodeUrl": "qr_d7_r3.png",
     "RoomId": 3
   },
   {
     "Name": "Nach",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d8_r3.png",
+    "QrCodeUrl": "qr_d8_r3.png",
     "RoomId": 3
   },
   {
     "Name": "Klima",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d9_r4.png",
+    "QrCodeUrl": "qr_d9_r4.png",
     "RoomId": 4
   },
   {
     "Name": "Prak",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d10_r4.png",
+    "QrCodeUrl": "qr_d10_r4.png",
     "RoomId": 4
   },
   {
     "Name": "Tak",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d11_r4.png",
+    "QrCodeUrl": "qr_d11_r4.png",
     "RoomId": 4
   },
   {
     "Name": "Op",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d12_r4.png",
+    "QrCodeUrl": "qr_d12_r4.png",
     "RoomId": 4
   },
   {
     "Name": "Sta",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d13_r5.png",
+    "QrCodeUrl": "qr_d13_r5.png",
     "RoomId": 5
   },
   {
     "Name": "Akus",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d14_r5.png",
+    "QrCodeUrl": "qr_d14_r5.png",
     "RoomId": 5
   },
   {
     "Name": "Mys",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d15_r5.png",
+    "QrCodeUrl": "qr_d15_r5.png",
     "RoomId": 5
   },
   {
     "Name": "Kroa",
     "Description": "höhenverstellbar",
-    "QrCodeUrl": "images/desks/qr_d16_r5.png",
+    "QrCodeUrl": "qr_d16_r5.png",
     "RoomId": 5
   }
 ]

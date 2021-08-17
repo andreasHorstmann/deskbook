@@ -14,6 +14,10 @@ namespace Infrastructure.Data
             _context = context;
         }
 
+        public DeskRepository()
+        {
+        }
+
         public async Task<Desk> GetDeskByIdAsync(int id)
         {
             return await _context.Desks
