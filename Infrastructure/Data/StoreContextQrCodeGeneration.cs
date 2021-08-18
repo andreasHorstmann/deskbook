@@ -22,10 +22,23 @@ namespace Infrastructure.Data
             var path = "../API/wwwroot/images/";
             var rpath = Path.Combine(path, "rooms");
             var dpath = Path.Combine(path, "desks");
+            var bpath = Path.Combine(path, "box");
 
             try
             {
-                logger_.LogInformation(rpath);
+                if(!Directory.Exists(bpath))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(bpath);
+                    var boxData = File.ReadAllText("../Infrastructure/Data/SeedData/BoxList.json");
+                    var boxes = JsonSerializer.Deserialize<List<Room>>(boxData);
+                    foreach(var item in boxes)
+                    {
+                        QRCodeData qrCodeData = qrGenerator.CreateQrCode(item.QrCodeUrl, QRCodeGenerator.ECCLevel.Q);
+                        QRCode qrCode = new QRCode(qrCodeData);
+                        Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                        SaveQrCodeImage(qrCodeImage, di, item.QrCodeUrl);
+                    }
+                }
                 if(!Directory.Exists(rpath))
                 {
                     DirectoryInfo di = Directory.CreateDirectory(rpath);
@@ -33,7 +46,6 @@ namespace Infrastructure.Data
                     var rooms = JsonSerializer.Deserialize<List<Room>>(roomsData);
                     foreach(var item in rooms)
                     {
-                        // logger_.LogInformation(item.Name);
                         QRCodeData qrCodeData = qrGenerator.CreateQrCode(item.QrCodeUrl, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
                         Bitmap qrCodeImage = qrCode.GetGraphic(20);
@@ -47,13 +59,10 @@ namespace Infrastructure.Data
                     var desks = JsonSerializer.Deserialize<List<Desk>>(desksData);
                     foreach(var item in desks)
                     {
-                        // logger_.LogInformation(item.Name);
                         QRCodeData qrCodeData = qrGenerator.CreateQrCode(item.QrCodeUrl, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
                         Bitmap qrCodeImage = qrCode.GetGraphic(20);
                         SaveQrCodeImage(qrCodeImage, di, item.QrCodeUrl);
-                        // logger_.LogInformation(Directory.Exists(Path.Combine(di.FullName)).ToString());
-                        // logger_.LogInformation(Path.GetDirectoryName(di.FullName));
                     }
                 }
             }

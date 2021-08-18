@@ -30,7 +30,7 @@ namespace API.Controllers
         {
             var spec = new DesksWithRoomSpecification(deskParams);
             var countSpec = new DesksWithFiltersForCountSpecification(deskParams);
-            var totalItems = await _deskRepo.CountAsync(spec);
+            var totalItems = await _deskRepo.CountAsync(countSpec);
             var desks = await _deskRepo.ListAsync(spec);
             var data = _mapper.Map<IReadOnlyList<Desk>, IReadOnlyList<DeskToReturnDto>>(desks);
             return Ok(new Pagination<DeskToReturnDto>(deskParams.PageIndex, deskParams.PageSize, totalItems, data));

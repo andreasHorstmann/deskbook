@@ -4,6 +4,7 @@ import { IPagination } from '../shared/models/pagination';
 import { IRoom } from '../shared/models/room';
 import { map } from 'rxjs/operators';
 import { ShopParams } from '../shared/models/shopParams';
+import { IDesk } from '../shared/models/desk';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,10 @@ export class ShopService {
           return response.body;
         })
       )
+  }
+
+  getDesk(id: number) {
+    return this.http.get<IDesk>(this.baseUrl + 'desks/' + id);
   }
 
   getRooms()

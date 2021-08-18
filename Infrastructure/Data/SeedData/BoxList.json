@@ -1,0 +1,14 @@
+[
+    {
+        "Id": 1,
+        "Name": "MainIcon",
+        "Description": "Main Icon im Header",
+        "QrCodeUrl": "boxed_icon.png"
+      },
+      {
+        "Id": 2,
+        "Name": "BookIcon",
+        "Description": "Book Icon im Header",
+        "QrCodeUrl": "book_icon.png"
+      }
+]
