@@ -13,7 +13,6 @@ namespace Infrastructure.Data
 
         public DbSet<Desk> Desks { get; set; }
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<Search> Searches { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

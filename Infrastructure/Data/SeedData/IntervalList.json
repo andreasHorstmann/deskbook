@@ -1,0 +1,26 @@
+[
+    {
+      "Id": 1,
+      "Name": "OneTimeOnly"
+    },
+    {
+      "Id": 2,
+      "Name": "Daily"
+    },
+    {
+      "Id": 3,
+      "Name": "Weekly"
+    },
+    {
+      "Id": 4,
+      "Name": "Monthly"
+    },
+    {
+      "Id": 5,
+      "Name": "Yearly"
+    },
+    {
+      "Id": 6,
+      "Name": "Custom"
+    }
+  ]
